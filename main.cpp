@@ -5,9 +5,11 @@
 #include <conio.h>
 #include <cstdlib>
 #include <cstdio>
+#include <string>
 using namespace std;
-string inst;
-string q;
+string inst,phrase,q;
+string phrasegroup[101];
+int ii,s=0;
 void reset(){
     system("cls");
     system("title Knowledge_base");
@@ -18,7 +20,7 @@ void delay(int t){
     do{}while(clock()-now<t*100);
     return;
 } //uses ms*10
-bool loadq(){
+/*bool loadq(){
     fstream file1("quotations.txt");
     if(!file1){
         cout<<endl<<" ERROR! File missing."<<endl;
@@ -27,7 +29,7 @@ bool loadq(){
     getline(file1,q,'}');
     file1.close();
     return true;
-}
+}*/
 bool loadi(){
     fstream file1("info.txt");
     if(!file1){
@@ -38,10 +40,26 @@ bool loadi(){
     file1.close();
     return true;
 }
+bool load(){
+    int i=1;
+    fstream file1("quotations.txt");
+    if(!file1){
+        cout<<endl<<" ERROR! File missing."<<endl;
+        return false;
+    }
+    while(file1&&getline(file1,phrasegroup[i])){
+        i++;
+    }
+    file1.close();
+    ii=i;
+    return true;
+}
 void quotations(){
     reset();
-    if(loadq()){
-        cout<<q<<endl;
+    if(load()){
+        for(int i=1;i<=ii;i++){
+            cout<<phrasegroup[i]<<endl;
+        }
     }
     cout<<endl<<" Press any key to return.";
     getch();
@@ -54,7 +72,7 @@ void excited(){
         cout<<" +"<<i<<"s"<<endl;
         delay(10);
     }
-    cout<<endl<<" Press any key to return.";
+    cout<<endl<<" Life devotion completed successfully, magician. Press any key to return.";
     getch();
     return;
 }
@@ -67,6 +85,33 @@ void resource(){
     getch();
     return;
 }
+void search(){
+    reset();
+    string::size_type idx;
+    while(load()){
+        reset();
+        cout<<endl<<"Search for quotations, type e to return:";
+        cin>>phrase;
+        if(phrase=="e"){
+            return;
+        }
+        for(int i=1;i<=ii;i++){
+            idx=phrasegroup[i].find(phrase);
+            if(idx!=string::npos){
+                cout<<phrasegroup[i]<<endl;
+                s=1;
+            }
+        }
+        if(s!=1){
+            reset();
+            cout<<endl<<" Not found. Press any key to return.";
+        }else{
+            cout<<endl<<" Press any key to return.";
+        }
+        getch();
+    }
+    return;
+}
 int main() {
     do{
         reset();
@@ -75,7 +120,7 @@ int main() {
         cout<<endl<<" c++ version by rh_hu"<<endl;
         cout<<" Instructions:"<<endl;
         cout<<" q    - Quotations: learn from the elderly"<<endl;
-        cout<<" qt   - Quick translate"<<endl;
+        cout<<" s    - Search for his quotations"<<endl;
         cout<<" e    - Excited! Devote your life to the elderly"<<endl;
         cout<<" r    - Request for more info"<<endl;
         cout<<" exit - Exit program"<<endl;
@@ -86,11 +131,8 @@ int main() {
         if(inst=="q"){
             quotations();
         }
-        if(inst=="qt"){
-            reset();
-            cout<<endl<<"Not available at this build. Press any key to return."<<endl;
-            getch();
-            //translate();
+        if(inst=="s"){
+            search();
         }
         if(inst=="e"){
             excited();
@@ -111,7 +153,7 @@ int main() {
             cout<<endl<<"Please enter the command. Press any key to return."<<endl;
             getch();
         }*/
-        if(inst!="q"&&inst!="qt"&&inst!="e"&&inst!="r"&&inst!="exit"){
+        if(inst!="q"&&inst!="s"&&inst!="e"&&inst!="r"&&inst!="exit"){
             reset();
             cout<<endl<<"No such command. Press any key to return."<<endl;
             getch();
