@@ -18,19 +18,29 @@ void delay(int t){
     do{}while(clock()-now<t*100);
     return;
 } //uses ms*10
-bool load(){
+bool loadq(){
     fstream file1("quotations.txt");
     if(!file1){
         cout<<endl<<" ERROR! File missing."<<endl;
         return false;
     }
-    getline(file1,q,'#');
+    getline(file1,q,'}');
+    file1.close();
+    return true;
+}
+bool loadi(){
+    fstream file1("info.txt");
+    if(!file1){
+        cout<<endl<<" ERROR! File missing."<<endl;
+        return false;
+    }
+    getline(file1,q,'}');
     file1.close();
     return true;
 }
 void quotations(){
     reset();
-    if(load()){
+    if(loadq()){
         cout<<q<<endl;
     }
     cout<<endl<<" Press any key to return.";
@@ -42,7 +52,16 @@ void excited(){
     for(int i=1; i<=64; i++){
         cout<<endl<<" EXCITED!!"<<endl;
         cout<<" +"<<i<<"s"<<endl;
-        delay(5);
+        delay(10);
+    }
+    cout<<endl<<" Press any key to return.";
+    getch();
+    return;
+}
+void resource(){
+    reset();
+    if(loadi()){
+        cout<<q<<endl;
     }
     cout<<endl<<" Press any key to return.";
     getch();
@@ -72,10 +91,10 @@ int main() {
         }*/
         if(inst=="e"){
             excited();
-        }/*
-        if(inst=='r'){
+        }
+        if(inst=="r"){
             resource();
-        }*/
+        }
         if(inst=="exit"){
             reset();
             cout<<endl<<"Thanks: Calvin Xu, the royal magician"<<endl;
