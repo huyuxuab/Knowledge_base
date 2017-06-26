@@ -1,12 +1,13 @@
 //windows os only
 #include <iostream>
-#include <cstdlib>
+#include <fstream>
 #include <ctime>
 #include <conio.h>
+#include <cstdlib>
 #include <cstdio>
 using namespace std;
 string inst;
-char q[46];
+string q;
 void reset(){
     system("cls");
     system("title Knowledge_base");
@@ -18,15 +19,14 @@ void delay(int t){
     return;
 } //uses ms*10
 void load(){
-    freopen("quotations.txt","r",stdin);
-    for(int i=1; i<=45; i++){
-        getline(cin,q[i],"\n");
-    }
+    fstream file1("quotations.txt");
+    getline(file1,q,'#');
+    return;
 }
 void quotations(){
     reset();
     load();
-    cout<<q<<endl;
+    cout<<q;
     cout<<endl<<" Press any key to return.";
     getch();
     return;
@@ -48,7 +48,7 @@ int main() {
         cout<<endl<<" Originally by Calvin Xu"<<endl;
         cout<<endl<<" ======================"<<endl;
         cout<<endl<<" c++ version by rh_hu"<<endl;
-        cout<<" instructions:"<<endl;
+        cout<<" Instructions:"<<endl;
         cout<<" q    - Quotations: learn from the elderly"<<endl;
         cout<<" qt   - Quick translate"<<endl;
         cout<<" e    - Excited! Devote your life to the elderly"<<endl;
@@ -70,7 +70,7 @@ int main() {
         }*/
         if(inst=="exit"){
             reset();
-            cout<<endl<<"Thanks: Calvin Xu"<<endl;
+            cout<<endl<<"Thanks: Calvin Xu, the royal magician"<<endl;
             cout<<endl<<"Exit soon."<<endl;
             delay(10);
             return 0;
