@@ -86,7 +86,7 @@ int main() {
         if(inst=="q"){
             quotations();
         }
-        if(inst=='qt'){
+        if(inst=="qt"){
             reset();
             cout<<endl<<"Not available in this build. Press any key to return."<<endl;
             getch();
