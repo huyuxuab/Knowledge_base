@@ -18,15 +18,21 @@ void delay(int t){
     do{}while(clock()-now<t*100);
     return;
 } //uses ms*10
-void load(){
+bool load(){
     fstream file1("quotations.txt");
+    if(!file1){
+        cout<<endl<<" ERROR! File missing."<<endl;
+        return false;
+    }
     getline(file1,q,'#');
-    return;
+    file1.close();
+    return true;
 }
 void quotations(){
     reset();
-    load();
-    cout<<q;
+    if(load()){
+        cout<<q<<endl;
+    }
     cout<<endl<<" Press any key to return.";
     getch();
     return;
@@ -56,6 +62,8 @@ int main() {
         cout<<" exit - Exit program"<<endl;
         cout<<" Input instruction: ";
         cin>>inst;
+        cin.clear();
+        clearerr(stdin);
         if(inst=="q"){
             quotations();
         }
@@ -75,10 +83,10 @@ int main() {
             delay(10);
             return 0;
         }
-        if(inst=="\n"){
+        /*(inst.empty()){
             cout<<endl<<"Please enter the command. Press any key to return."<<endl;
             getch();
-        }
+        }*/
         if(inst!="q"&&inst!="qt"&&inst!="e"&&inst!="r"&&inst!="exit"){
             reset();
             cout<<endl<<"No such command. Press any key to return."<<endl;
