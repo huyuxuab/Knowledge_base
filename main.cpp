@@ -3,10 +3,10 @@
 #include <cstdlib>
 #include <ctime>
 #include <conio.h>
-
+#include <cstdio>
 using namespace std;
 string inst;
-string q;
+char q[46];
 void reset(){
     system("cls");
     system("title Knowledge_base");
@@ -16,24 +16,20 @@ void delay(int t){
     now=clock();
     do{}while(clock()-now<t*100);
     return;
-}
-bool load(){
-    //freopen("quotations.txt","r",stdin);
-    getline(cin,q,'\n');
-    //fclose(stdin);
-    return true;
+} //function delay() uses ms*10
+void load(){
+    freopen("quotations.txt","r",stdin);
+    for(int i=1; i<=45; i++){
+        getline(cin,q[i],"\n");
+    }
 }
 void quotations(){
     reset();
-    if(!load()){
-        cout<<"error"<<endl;
-        getch();
-        return;
-    }else{
-        cout<<q<<endl;
-        getch();
-        return;
-    }
+    load();
+    cout<<q<<endl;
+    cout<<endl<<" Press any key to return.";
+    getch();
+    return;
 }
 void excited(){
     reset();
@@ -42,7 +38,7 @@ void excited(){
         cout<<" +"<<i<<"s"<<endl;
         delay(5);
     }
-    cout<<endl<<"Press any key to continue.";
+    cout<<endl<<" Press any key to return.";
     getch();
     return;
 }
@@ -73,7 +69,15 @@ int main() {
             resource();
         }*/
         if(inst=="exit"){
+            reset();
+            cout<<endl<<"Thanks: Calvin Xu"<<endl;
+            cout<<endl<<"Exit soon."<<endl;
+            delay(10);
             return 0;
+        }
+        if(inst=="\n"){
+            cout<<endl<<"Please enter the command. Press any key to return."<<endl;
+            getch();
         }
         if(inst!="q"&&inst!="qt"&&inst!="e"&&inst!="r"&&inst!="exit"){
             reset();
