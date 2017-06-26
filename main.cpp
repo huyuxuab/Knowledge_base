@@ -110,6 +110,8 @@ void search(){
         }
         getch();
     }
+    cout<<endl<<" Press any key to return.";
+    getch();
     return;
 }
 int main() {
