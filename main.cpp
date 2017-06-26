@@ -16,7 +16,7 @@ void delay(int t){
     now=clock();
     do{}while(clock()-now<t*100);
     return;
-} //function delay() uses ms*10
+} //uses ms*10
 void load(){
     freopen("quotations.txt","r",stdin);
     for(int i=1; i<=45; i++){
