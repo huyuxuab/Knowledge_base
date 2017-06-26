@@ -98,6 +98,8 @@ int main() {
         if(inst=="exit"){
             reset();
             cout<<endl<<"Thanks: Calvin Xu, the royal magician"<<endl;
+            cout<<endl<<"Programmed by rh_hu"<<endl;
+            cout<<endl<<"LET'S +1s TOGETHER!"<<endl;
             cout<<endl<<"Exit soon."<<endl;
             delay(10);
             return 0;
