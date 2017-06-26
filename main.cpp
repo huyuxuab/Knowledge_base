@@ -88,7 +88,7 @@ int main() {
         }
         if(inst=="qt"){
             reset();
-            cout<<endl<<"Not available in this build. Press any key to return."<<endl;
+            cout<<endl<<"Not available at this build. Press any key to return."<<endl;
             getch();
             //translate();
         }
