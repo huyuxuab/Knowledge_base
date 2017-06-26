@@ -86,9 +86,12 @@ int main() {
         if(inst=="q"){
             quotations();
         }
-        /*if(inst=='qt'){
-            translate();
-        }*/
+        if(inst=='qt'){
+            reset();
+            cout<<endl<<"Not available in this build. Press any key to return."<<endl;
+            getch();
+            //translate();
+        }
         if(inst=="e"){
             excited();
         }
