@@ -1,39 +1,50 @@
 //windows os only
 #include <iostream>
 #include <cstdlib>
-#include <cstdio>
+#include <ctime>
 #include <conio.h>
+
 using namespace std;
-char inst;
-char q[1000];
+string inst;
+string q;
 void reset(){
     system("cls");
     system("title Knowledge_base");
 }
+void delay(int t){
+    int now;
+    now=clock();
+    do{}while(clock()-now<t*100);
+    return;
+}
 bool load(){
-    FILE * add;
-    add=fopen("quotations.txt","r");
-    if(add==NULL){
-        fclose(add);
-        reset();
-        cout<<endl<<"Error opening file. Press any key to return."<<endl;
-        getch();
-        return false;
-    }else{
-        if (fgets(q,200,add)!=NULL){
-            puts(q);
-        }
-    }
-    fclose(add);
+    //freopen("quotations.txt","r",stdin);
+    getline(cin,q,'\n');
+    //fclose(stdin);
     return true;
 }
 void quotations(){
     reset();
     if(!load()){
+        cout<<"error"<<endl;
+        getch();
         return;
     }else{
         cout<<q<<endl;
+        getch();
+        return;
     }
+}
+void excited(){
+    reset();
+    for(int i=1; i<=64; i++){
+        cout<<endl<<" EXCITED!!"<<endl;
+        cout<<" +"<<i<<"s"<<endl;
+        delay(5);
+    }
+    cout<<endl<<"Press any key to continue.";
+    getch();
+    return;
 }
 int main() {
     do{
@@ -49,22 +60,22 @@ int main() {
         cout<<" exit - Exit program"<<endl;
         cout<<" Input instruction: ";
         cin>>inst;
-        if(inst=='q'){
+        if(inst=="q"){
             quotations();
         }
         /*if(inst=='qt'){
             translate();
-        }
-        if(inst=='e'){
+        }*/
+        if(inst=="e"){
             excited();
-        }
+        }/*
         if(inst=='r'){
             resource();
         }*/
-        if(inst=='exit'){
+        if(inst=="exit"){
             return 0;
         }
-        if(inst!='q'&&inst!='qt'&&inst!='e'&&inst!='r'&&inst!='exit'){
+        if(inst!="q"&&inst!="qt"&&inst!="e"&&inst!="r"&&inst!="exit"){
             reset();
             cout<<endl<<"No such command. Press any key to return."<<endl;
             getch();
