@@ -67,12 +67,20 @@ void quotations(){
 }
 void excited(){
     reset();
-    for(int i=1; i<=64; i++){
+    int i=0;
+    int set=0;
+    cout<<endl<<"How much time do you want to devote to the elderly? ";
+    cin>>set;
+    do{
+        reset();
+        i++;
         cout<<endl<<" EXCITED!!"<<endl;
         cout<<" +"<<i<<"s"<<endl;
+        //cout<<endl<<" Press any key to stop."<<endl;
         delay(10);
-    }
-    cout<<endl<<" Life devotion completed successfully, magician. Press any key to return.";
+    }while(i!=set);
+    cout<<endl<<" Life devotion completed successfully, magician."<<endl;
+    cout<<endl<<" You have devoted "<<i<<" seconds. Press any key to return.";
     getch();
     return;
 }
