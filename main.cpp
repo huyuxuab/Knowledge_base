@@ -1,4 +1,4 @@
-//windows os only
+//windows os only because of system() in cstdlib and getch() in conio.h
 #include <iostream>
 #include <fstream>
 #include <ctime>
