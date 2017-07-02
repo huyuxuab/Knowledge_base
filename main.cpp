@@ -8,7 +8,7 @@
 #include <string>
 using namespace std;
 string inst,phrase,q;
-string phrasegroup[101];
+string phrasegroup[10000];
 int ii,s=0;
 void reset(){
     system("cls");
