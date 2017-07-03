@@ -45,6 +45,7 @@ bool loadi(){
     return true;
 }
 bool load_a(){
+    reset();
     fstream file1("quote1.txt");
     if(!file1){
         cout<<endl<<" ERROR! File missing."<<endl;
@@ -56,6 +57,7 @@ bool load_a(){
     return true;
 }
 bool load_b(){
+    reset();
     fstream file1("quote2.txt");
     if(!file1){
         cout<<endl<<" ERROR! File missing."<<endl;
@@ -67,6 +69,7 @@ bool load_b(){
     return true;
 }
 bool load_c(){
+    reset();
     fstream file1("quote3.txt");
     if(!file1){
         cout<<endl<<" ERROR! File missing."<<endl;
@@ -160,13 +163,13 @@ void search(){
     return;
 }
 void experiences(){
-    reset();
     do{
-        cout<<" a    - 国机二院"<<endl;
-        cout<<" b    - 怒斥港记"<<endl;
-        cout<<" c    - 和华莱士谈笑风生"<<endl;
+        reset();
+        cout<<endl<<" a    - GUO JI ER YUAN"<<endl;
+        cout<<" b    - Rebuke"<<endl;
+        cout<<" c    - The interview"<<endl;
         cout<<" exit - Return to homepage"<<endl;
-        cout<<" Choose which you want to learn: ";
+        cout<<endl<<" Choose which you want to learn: ";
         cin>>choice;
         cin.clear();
         clearerr(stdin);
@@ -191,10 +194,10 @@ void experiences(){
             cout<<endl<<" Press any key to return.";
             getch();
         }
-        if(inst=="exit"){
+        if(choice=="exit"){
             return;
         }
-        if(choice!="a"&&choice!="b"&&choice!="c"){
+        if(choice!="a"&&choice!="b"&&choice!="c"&&choice!="exit"){
             reset();
             cout<<endl<<"No such command. Press any key to return."<<endl;
             getch();
@@ -215,7 +218,7 @@ int main() {
         cout<<" e    - Excited! Devote your life to the elderly"<<endl;
         cout<<" r    - Request for more info"<<endl;
         cout<<" exit - Exit program"<<endl;
-        cout<<" Input instruction: ";
+        cout<<endl<<" Input instruction: ";
         cin>>inst;
         cin.clear();
         clearerr(stdin);

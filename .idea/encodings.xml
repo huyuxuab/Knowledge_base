@@ -3,5 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/info.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/quotations.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/quote1.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/quote2.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/quote3.txt" charset="GBK" />
   </component>
 </project>
