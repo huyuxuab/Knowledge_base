@@ -37,8 +37,9 @@ bool loadi(){
     if(!file1){
         cout<<endl<<" ERROR! File missing."<<endl;
         return false;
+    }else{
+        getline(file1,q,'}');
     }
-    getline(file1,q,'}');
     file1.close();
     return true;
 }
@@ -49,7 +50,7 @@ bool load(){
         cout<<endl<<" ERROR! File missing."<<endl;
         return false;
     }
-    while(file1&&getline(file1,phrasegroup[i])){
+    while(file1 && getline(file1,phrasegroup[i])){
         i++;
     }
     file1.close();
@@ -124,6 +125,9 @@ void search(){
     getch();
     return;
 }
+void experiences(){
+
+}
 int main() {
     do{
         reset();
@@ -131,7 +135,8 @@ int main() {
         cout<<endl<<" ======================"<<endl;
         cout<<endl<<" c++ version by rh_hu"<<endl;
         cout<<" Instructions:"<<endl;
-        cout<<" q    - Quotations: learn from the elderly"<<endl;
+        cout<<" q    - Quotations: learn from the elderly (view all)"<<endl;
+        cout<<" m    - Stories: Get to know the elderly's life experience"<<endl;
         cout<<" s    - Search for his quotations"<<endl;
         cout<<" e    - Excited! Devote your life to the elderly"<<endl;
         cout<<" r    - Request for more info"<<endl;
@@ -142,6 +147,9 @@ int main() {
         clearerr(stdin);
         if(inst=="q"){
             quotations();
+        }
+        if(inst=="m"){
+            experiences();
         }
         if(inst=="s"){
             search();
@@ -154,7 +162,7 @@ int main() {
         }
         if(inst=="exit"){
             reset();
-            cout<<endl<<"Thanks: Calvin Xu, the royal magician"<<endl;
+            cout<<endl<<"Thanks: Calvin_Xu the mogician"<<endl;
             cout<<endl<<"Programmed by rh_hu"<<endl;
             cout<<endl<<"LET'S +1s TOGETHER!"<<endl;
             cout<<endl<<"Exit soon."<<endl;
