@@ -9,7 +9,7 @@
 #include <cstdio>
 #include <string>
 using namespace std;
-string inst,phrase,q;
+string inst,phrase,q,choice;
 string phrasegroup[10000];
 int ii,s=0;
 void reset(){
@@ -126,7 +126,30 @@ void search(){
     return;
 }
 void experiences(){
-
+    do{
+        cout<<" a    - Quotations: learn from the elderly (view all)"<<endl;
+        cout<<" b    - Stories: Get to know the elderly's life experience"<<endl;
+        cout<<" c    - Search for his quotations"<<endl;
+        cout<<" Choose which you want to learn: ";
+        cin>>choice;
+        cin.clear();
+        clearerr(stdin);
+        if(choice=="a"){
+            load_a();
+        }
+        if(choice=="b"){
+            load_b();
+        }
+        if(choice=="c"){
+            load_c();
+        }
+        if(choice!="a"&&choice!="b"&&choice!="c"){
+            reset();
+            cout<<endl<<"No such command. Press any key to return."<<endl;
+            getch();
+        }
+    }while(1);
+    return;
 }
 int main() {
     do{
@@ -173,7 +196,7 @@ int main() {
             cout<<endl<<"Please enter the command. Press any key to return."<<endl;
             getch();
         }*/
-        if(inst!="q"&&inst!="s"&&inst!="e"&&inst!="r"&&inst!="exit"){
+        if(inst!="q"&&inst!="s"&&inst!="m"&&inst!="e"&&inst!="r"&&inst!="exit"){
             reset();
             cout<<endl<<"No such command. Press any key to return."<<endl;
             getch();
