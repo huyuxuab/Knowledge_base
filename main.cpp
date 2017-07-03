@@ -33,7 +33,41 @@ void delay(int t){
     return true;
 }*/
 bool loadi(){
+    reset();
     fstream file1("info.txt");
+    if(!file1){
+        cout<<endl<<" ERROR! File missing."<<endl;
+        return false;
+    }else{
+        getline(file1,q,'}');
+    }
+    file1.close();
+    return true;
+}
+bool load_a(){
+    fstream file1("quote1.txt");
+    if(!file1){
+        cout<<endl<<" ERROR! File missing."<<endl;
+        return false;
+    }else{
+        getline(file1,q,'}');
+    }
+    file1.close();
+    return true;
+}
+bool load_b(){
+    fstream file1("quote2.txt");
+    if(!file1){
+        cout<<endl<<" ERROR! File missing."<<endl;
+        return false;
+    }else{
+        getline(file1,q,'}');
+    }
+    file1.close();
+    return true;
+}
+bool load_c(){
+    fstream file1("quote3.txt");
     if(!file1){
         cout<<endl<<" ERROR! File missing."<<endl;
         return false;
@@ -126,22 +160,39 @@ void search(){
     return;
 }
 void experiences(){
+    reset();
     do{
-        cout<<" a    - Quotations: learn from the elderly (view all)"<<endl;
-        cout<<" b    - Stories: Get to know the elderly's life experience"<<endl;
-        cout<<" c    - Search for his quotations"<<endl;
+        cout<<" a    - 国机二院"<<endl;
+        cout<<" b    - 怒斥港记"<<endl;
+        cout<<" c    - 和华莱士谈笑风生"<<endl;
+        cout<<" exit - Return to homepage"<<endl;
         cout<<" Choose which you want to learn: ";
         cin>>choice;
         cin.clear();
         clearerr(stdin);
         if(choice=="a"){
-            load_a();
+            if(load_a()){
+                cout<<q<<endl;
+            }
+            cout<<endl<<" Press any key to return.";
+            getch();
         }
         if(choice=="b"){
-            load_b();
+            if(load_b()){
+                cout<<q<<endl;
+            }
+            cout<<endl<<" Press any key to return.";
+            getch();
         }
         if(choice=="c"){
-            load_c();
+            if(load_c()){
+                cout<<q<<endl;
+            }
+            cout<<endl<<" Press any key to return.";
+            getch();
+        }
+        if(inst=="exit"){
+            return;
         }
         if(choice!="a"&&choice!="b"&&choice!="c"){
             reset();
