@@ -1,4 +1,5 @@
 //the quotations can be extended up to 9999 items
+//support file (except quotations.txt) should end with "}"
 #include <iostream>
 #include <fstream>
 #include <ctime>
@@ -244,10 +245,6 @@ int main() {
             delay(10);
             return 0;
         }
-        /*(inst.empty()){
-            cout<<endl<<"Please enter the command. Press any key to return."<<endl;
-            getch();
-        }*/
         if(inst!="q"&&inst!="s"&&inst!="m"&&inst!="e"&&inst!="r"&&inst!="exit"){
             reset();
             cout<<endl<<"No such command. Press any key to return."<<endl;
