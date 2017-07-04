@@ -21,16 +21,6 @@ void delay(int t){
     do{}while(clock()-now<t*100);
     return;
 } //uses ms*10
-/*bool loadq(){
-    fstream file1("quotations.txt");
-    if(!file1){
-        cout<<endl<<" ERROR! File missing."<<endl;
-        return false;
-    }
-    getline(file1,q,'}');
-    file1.close();
-    return true;
-}*/
 bool loadi(){
     reset();
     fstream file1("info.txt");
