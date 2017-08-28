@@ -69,6 +69,7 @@ bool load_c(){
     file1.close();
     return true;
 }
+//getline() ---> get() ?
 bool load(){
     int i=1;
     fstream file1("quotations.txt");
@@ -228,7 +229,7 @@ int main() {
         }
         if(inst=="exit"){
             reset();
-            cout<<endl<<"Thanks: Calvin_Xu the mogician"<<endl;
+            cout<<endl<<"Thanks: Calvin_Xu the royal mogician"<<endl;
             cout<<endl<<"Programmed by rh_hu"<<endl;
             cout<<endl<<"LET'S +1s TOGETHER!"<<endl;
             cout<<endl<<"Exit soon."<<endl;
