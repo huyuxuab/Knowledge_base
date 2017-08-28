@@ -1,5 +1,8 @@
 //the quotations can be extended up to 9999 items
 //support file (except quotations.txt) should end with "}"
+
+
+//quotes in GBK
 #include <iostream>
 #include <fstream>
 #include <ctime>
