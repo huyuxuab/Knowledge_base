@@ -1,4 +1,4 @@
-# Knowledge_base　(Windows platform only because of system() in cstdlib and getch() in conio.h)
+# Knowledge_base　(win32 only)
 
 **EXCITED! - a very simple program for Jiang the elderly**
 
